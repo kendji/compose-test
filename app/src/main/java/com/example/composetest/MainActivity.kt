@@ -11,6 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Button
+import androidx.compose.ui.Alignment
 import com.example.composetest.ui.theme.ComposetestTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +23,37 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ComposetestTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                MainScreen()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun MainScreen() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "配送管理"
+        )
+        Button(
+            onClick = { // TODO
+            }
+        ) {
+            Text(
+                "開始"
+            )
+        }
+    }
 }
 
-@Preview(showBackground = true)
-@Composable
+ @Preview(showBackground = true)
+ @Composable
 fun GreetingPreview() {
     ComposetestTheme {
-        Greeting("Android")
+        MainScreen()
     }
 }
